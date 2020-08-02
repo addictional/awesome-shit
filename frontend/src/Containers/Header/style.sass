@@ -1,0 +1,128 @@
+.header 
+    width: 100%
+    height: 498px
+    background : no-repeat url("/img/background.png")
+    background-size: cover
+    &__top
+        display : flex
+        width : 1024px
+        height : 195px
+        margin : 0 auto
+        padding-top : 46px
+        color : #d0d8d9
+        &__fixed
+            display : flex
+            width : 100%
+            height : 60px
+            color : #ffffff
+            position : fixed
+            z-index : 10
+            background : no-repeat url("/img/background.png")
+            background-size: cover
+            justify-content: space-between
+            transition: transform .5s
+            &--hide
+                transform: translateY(-70px);
+            &--show
+                transform: translateY(0px);    
+            &--title
+                margin : 8px 0 0 50px
+            .navigation
+                margin : 20px 50px 0 0
+                a
+                    margin-right: 20px   
+        &-title
+            font-size : 134px
+            font-weight: normal
+            margin: 0px 0 0px 100px
+        &-burger
+            display : none    
+        .navigation
+            margin-left : 151px
+            width : 446px
+            display : flex
+            justify-content: space-between
+            padding-top: 26px    
+            &-link 
+                font-size : 24px
+                height: 24px
+    &__first_slide
+        display : flex;
+        color : #ffffff
+        img
+            margin-left : 117px
+            margin-right: 70px
+            -moz-user-select: none
+            -khtml-user-select: none
+            user-select: none
+        .info
+            &__text
+                font-weight : normal
+                margin-bottom: 36px
+                strong
+                    font-size : 50px
+            &__button
+                margin-top : 36px
+                background : #175c3b
+                width : 140px
+                height : 40px
+                border-style: solid
+                border-width: 4px
+                border-color: #0000006b
+                padding : 5px 15px
+                font-weight: normal
+                font-size: 15px
+    .burger
+        display : none            
+
+@media (max-width : 1024px)
+    .header
+        height : auto
+        &__top
+            width: 90%
+            padding: 0 auto
+            &-title
+                font-size : 120px
+                font-weight: normal
+                margin: 0 0
+            .navigation
+                margin-left : auto
+@media (max-width : 769px)
+    .header
+        &__top
+            justify-content: space-between
+            width: 90%
+            padding-top : 10px
+            margin : 0 auto
+            &-title
+                font-size : 60px
+                font-weight: normal
+                margin: 0 0
+            &-burger
+                display : block
+                margin-top : 20px  
+            .navigation
+                display : none 
+            &__fixed
+                padding: 0
+                justify-content : space-around
+                .navigation
+                    display : none
+                &-title
+                    margin: 0;
+                    margin-top: 7px
+                &-burger
+                    margin-top: 12px
+        &__first_slide
+            width : 100%
+            display: block
+            img
+                margin: 0 auto
+                display: block
+            .info
+                display: flex
+                margin: 0 auto
+                width: 60%
+                justify-content: space-between
+        .burger
+            display : block            

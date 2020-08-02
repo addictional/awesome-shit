@@ -1,0 +1,51 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80" 
+    depends_on: 
+      - backend
+      - frontend
+    command: tail -f /dev/null
+  backend:
+    image : node:12
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - image-storage
+      - db   
+    command: tail -f /dev/null  
+  frontend:
+    image : node:12
+    ports:
+      - "3001:3001" 
+    volumes:
+      - ./frontend:/app
+    depends_on: 
+      - backend
+    command: tail -f /dev/null
+  image-storage:
+    image : node:12
+    ports : 
+      - "3002:3002"
+    volumes: 
+      - ./image-storage:/app
+    depends_on: 
+      - db
+    environment:
+      DATABASE_URL: "postgres://postgres:postgres@db:5432/images" 
+    command: tail -f /dev/null        
+  db:
+    image : postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: images 
+    ports:
+      - "5432:5432" 
+networks: 
+  backend: 
+    driver : bridge    

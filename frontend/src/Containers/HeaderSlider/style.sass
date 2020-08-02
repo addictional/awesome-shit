@@ -1,0 +1,47 @@
+.header__slider
+    display : flex
+    justify-content: space-between
+    width : 1280px
+    margin : 0 auto
+    &__content
+        overflow : hidden
+        width : 1024px
+        background : transparent
+        box-sizing: border-box;
+        .wrapper
+            display : flex
+            transition: transform .5s
+            &--block-animation
+                transition : none
+                -ms-transition : none
+            &-element
+                width : 1024px
+                flex-shrink: 0
+    &__button
+        margin-top : 81px
+        cursor : pointer;
+        fill : #767a79
+        opacity : 0.68
+        &--rigth
+            margin-right: 53px
+        &--left
+            margin-left : 53px  
+
+@media (max-width : 1279px)
+    .header__slider
+        position : relative
+        width : 100%
+        &__button
+            z-index : 2
+            &--rigth
+                position : absolute
+                right : -30px
+            &--left                                
+                position : absolute
+                left : -30px
+        &__content
+            width : 100%
+            .wrapper
+                &-element
+                    width : 100%
+                
